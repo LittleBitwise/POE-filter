@@ -1,0 +1,260 @@
+# GENERAL STYLE
+    Show
+        Quality >= 1
+        SetBorderColor 27 162 155 192
+        Continue
+
+    Show
+        Corrupted True
+        SetBorderColor 210 0 0 128
+        Continue
+
+    Show
+        AnyEnchantment True
+        PlayEffect Purple
+        SetTextColor 184 218 242
+
+    Show
+        Rarity Unique
+        PlayEffect Brown
+        MinimapIcon 2 Brown Star
+        SetBackgroundColor 175 96 37
+        SetBorderColor 175 96 37
+        SetTextColor 42 42 42
+        Continue
+
+    Show
+        PlayEffect Grey
+        MinimapIcon 2 Grey Moon
+        HasExplicitMod >=1 Veil
+        Continue
+
+
+# CURRENCY
+    Hide    # Special case: Ignore worthless shards
+        BaseType "Binding Shard" "Alchemy Shard" "Alteration Shard" "Transmutation Shard"
+
+    Hide    # Special case: Ignore small stacks
+        BaseType "Scroll of Wisdom" "Portal Scroll"
+        AreaLevel >= 70
+        StackSize < 5
+
+    Show    # Different effect
+        BaseType "Scroll of Wisdom" "Portal Scroll"
+        PlayEffect White Temp
+
+    Show    # Valuables
+        PlayEffect Red
+        PlayAlertSound 16 200
+        MinimapIcon 2 Red Circle
+        BaseType "Chaos Orb" "Divine Orb"
+
+    Show    # Valuables
+        PlayEffect Red
+        PlayAlertSound 16 200
+        MinimapIcon 2 Red Circle
+        BaseType "Orb of Fusing" "Glassblower's Bauble" "Gemcutter's Prism"
+
+    Show    # Equivalent to one Fusing
+        PlayEffect Red
+        PlayAlertSound 16 200
+        MinimapIcon 2 Red Circle
+        BaseType "Jeweller's Orb"
+        StackSize >= 4
+
+    Show    # Valuables
+        PlayEffect Red
+        PlayAlertSound 16 200
+        MinimapIcon 2 Red Circle
+        BaseType "Orb of Regret" "Orb of Unmaking"
+
+    Show    # Default gold beam
+        Class Currency
+        PlayEffect Yellow
+        MinimapIcon 2 Yellow Circle
+
+
+# DIVINATION CARDS
+    Show
+        PlayEffect Blue
+        MinimapIcon 2 Blue Square
+        Class "Divination Cards"
+
+
+# FLASKS
+    Show
+        Class "Utility Flask"
+        PlayEffect Blue
+        MinimapIcon 2 Cyan Raindrop
+
+
+# GEMS
+    Show    # Drop-only gems
+        Class Gems
+        BaseType "Empower Support" "Enhance Support" "Enlighten Support" Portal
+        MinimapIcon 2 Cyan Kite
+        SetBackgroundColor 27 162 155
+        SetBorderColor 27 162 155
+        SetTextColor 42 42 42
+
+    Show    # Awakened gems
+        Class Gems
+        BaseType Awakened
+        MinimapIcon 2 Cyan Kite
+        SetBackgroundColor 27 162 155
+        SetBorderColor 27 162 155
+        SetTextColor 42 42 42
+
+    Show    # Leveled gems
+        Class Gems
+        GemLevel > 1
+        MinimapIcon 2 Cyan Kite
+        SetBackgroundColor 27 162 155
+        SetBorderColor 27 162 155
+        SetTextColor 42 42 42
+
+
+# MAPS
+    Show    # Unique
+        Class Maps
+        Rarity Unique
+        MinimapIcon 2 Brown Square
+        SetBackgroundColor 175 96 37
+        SetBorderColor 175 96 37
+        SetTextColor 42 42 42
+
+    Show    # White maps
+        Class Maps
+        MapTier <= 5
+        MinimapIcon 2 White Square
+        SetBackgroundColor 222 222 222
+        SetBorderColor 222 222 222
+        SetTextColor 42 42 42
+
+    Show    # Yellow maps
+        Class Maps
+        MapTier <= 10
+        MinimapIcon 2 Yellow Square
+        SetBackgroundColor 255 215 0
+        SetBorderColor 255 215 0
+        SetTextColor 42 42 42
+
+    Show    # Red maps
+        Class Maps
+        MapTier <= 16
+        MinimapIcon 2 Red Square
+        SetBackgroundColor 150 0 0
+        SetBorderColor 150 0 0
+        SetTextColor 42 42 42
+
+
+# MAP ITEMS
+    Show    # Special case: No effect for sacrifice pieces
+        BaseType "Sacrifice at"
+
+    Show
+        Class "Map Fragments" "Misc Map Items"
+        PlayEffect Pink
+        MinimapIcon 2 Pink Square
+
+
+# GEMCUTTER RECIPE (gems with 40% total quality)
+    Show
+        Class Gems
+        Quality >= 1
+        MinimapIcon 2 Cyan Kite
+        SetBackgroundColor 27 162 155
+        SetBorderColor 27 162 155
+        SetTextColor 42 42 42
+
+
+# GLASSBLOWER RECIPE (flasks with 40% total quality)
+    Show
+        Class Flask
+        Quality >= 5
+        PlayEffect Blue
+        MinimapIcon 2 Cyan Raindrop
+        SetBackgroundColor 0 100 150
+        SetBorderColor 0 100 150
+        SetTextColor 42 42 42
+
+
+# CHROMATIC ORB RECIPE (RGB linked sockets)
+    Show    # thin items, with beam
+        SocketGroup RGB
+        Width 1
+        PlayEffect Green
+        MinimapIcon 2 Green Cross
+
+#   Show    # 2x2 items, temp beam
+#       SocketGroup RGB
+#       Width 2
+#       Height 2
+#       PlayEffect Green Temp
+
+
+# JEWELER'S ORB RECIPE (6 sockets)
+    Show
+        Sockets 6
+        PlayEffect Orange
+        MinimapIcon 2 Grey Diamond
+
+
+# ORB OF CHANCE RECIPE
+    Show
+        HasExplicitMod >=6 ""
+        PlayEffect Orange Temp
+
+
+# REGAL ORB RECIPE (full rare set)
+    Show    # Armor slots (no shield)
+        Rarity Rare
+        Identified False
+        ItemLevel >= 75
+        ItemLevel <= 100
+        Class Amulet Ring Belt Helmet Glove Boot Body
+        SetBackgroundColor 255 255 119 50
+
+    Show    # Weapon slots (2x3 per chaos)
+        Rarity Rare
+        Identified False
+        ItemLevel >= 75
+        ItemLevel <= 100
+        Class "One Hand Sword" Dagger Wand Bow
+        SetBackgroundColor 255 255 119 50
+
+
+# CHAOS ORB RECIPE (full rare set)
+    Show    # Armor slots (no shield)
+        Rarity Rare
+        Identified False
+        ItemLevel >= 60
+        ItemLevel <= 74
+        Class Amulet Ring Belt Helmet Glove Boot Body
+        SetBackgroundColor 255 255 119 35
+
+    Show    # Weapon slots (2x3 per chaos)
+        Rarity Rare
+        Identified False
+        ItemLevel >= 60
+        ItemLevel <= 74
+        Class "One Hand" Dagger Wand Bow
+        SetBackgroundColor 255 255 119 35
+
+
+# HIDE THINGS IF THEY WERE NOT MATCHED ABOVE
+    Hide
+        Rarity Normal Magic Rare
+        Class Amulet Ring Belt
+    Hide
+        Rarity Normal Magic Rare
+        Class Helmet Glove Boot Body
+    Hide
+        Rarity Normal Magic Rare
+        Class Bow Quiver "One Hand" "Two Hand"
+    Hide
+        Rarity Normal Magic Rare
+        Class Staff Shield Wand Dagger Sceptre Claw
+    Hide
+        Class "Life Flask" "Mana Flask" "Hybrid Flask"
+        Quality 0
