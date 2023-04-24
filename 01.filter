@@ -1,0 +1,197 @@
+# --- INTERESTING DROPS --- #
+Show
+	PlayEffect Grey
+	PlayAlertSound 16 200
+	MinimapIcon 2 Grey Moon
+	HasExplicitMod >=1 Veil
+Show
+	PlayEffect Red
+	PlayAlertSound 16 200
+	MinimapIcon 2 Red Circle
+	BaseType "Chaos Orb" "Orb of Regret" "Divine Orb" "Orb of Fusing" "Glassblower's Bauble" "Gemcutter's Prism"
+Show
+	PlayEffect Red
+	PlayAlertSound 16 200
+	MinimapIcon 2 Red Circle
+	LinkedSockets >= 5
+Show
+	PlayEffect White
+	MinimapIcon 2 White Diamond
+	PlayAlertSound 16 200
+	Sockets >= 4WW
+Show
+	PlayEffect Red
+	MinimapIcon 2 Red UpsideDownHouse
+	Class Incursion Labyrinth Heist
+Show
+	PlayEffect Red
+	PlayAlertSound 16 200
+	AnyEnchantment True
+
+# --- CORRUPTED --- #
+Show
+	Corrupted True
+	SetBorderColor 210 0 0 128
+	Continue
+
+# --- RECIPE: JEWELER --- #
+Show
+	PlayEffect Orange
+	MinimapIcon 2 Orange Cross
+	Sockets 6
+
+# --- RECIPE: CHANCE --- #
+Show
+	PlayEffect Orange Temp
+#	SetFontSize 18
+	HasExplicitMod >=6 ""
+
+# --- RECIPE: CHROMATIC --- #
+Show
+	PlayEffect Green
+	MinimapIcon 2 Green Cross
+	SocketGroup RGB
+	Width == 1
+Show
+	PlayEffect Green
+	MinimapIcon 2 Green Cross
+	SocketGroup RGB
+	Width <= 2
+	Height <= 2
+
+# --- RECIPE: QUALITY --- #
+Show
+	PlayEffect Blue
+	MinimapIcon 2 Blue Cross
+	Quality >= 1
+	Class Gem
+Show
+	PlayEffect Blue
+	MinimapIcon 2 Blue Cross
+	Quality >= 5
+	Class Flask
+Show
+	PlayEffect Cyan
+	MinimapIcon 2 Blue Cross
+	Quality >= 30
+Show
+	PlayEffect Cyan Temp
+	Quality >= 20
+
+# --- BASIC --- #
+Show
+	PlayEffect Brown
+	MinimapIcon 2 Brown Star
+	Rarity Unique
+Show
+	MinimapIcon 2 Cyan Kite
+	Class "Skill Gems"
+Show
+	PlayEffect Blue
+	MinimapIcon 2 Blue Square
+	Class "Divination Cards"
+Show
+	PlayEffect White
+	MinimapIcon 2 White Kite
+	Class Jewel
+Show
+	PlayEffect White Temp
+	MinimapIcon 2 White Square
+	Class Map
+
+# --- SCROLLS --- #
+Show
+	AreaLevel < 70
+	PlayEffect White Temp
+	BaseType "Scroll of Wisdom" "Portal Scroll"
+Show
+	AreaLevel >= 70
+	StackSize >= 5
+	PlayEffect White Temp
+	BaseType "Scroll of Wisdom" "Portal Scroll"
+Hide
+	AreaLevel >= 70
+	StackSize < 5
+	DisableDropSound
+	SetFontSize 18
+	SetBackgroundColor 0 0 0 0
+	BaseType "Scroll of Wisdom" "Portal Scroll"
+
+# --- CURRENCY --- #
+Hide
+	DisableDropSound
+	SetFontSize 18
+	SetBackgroundColor 0 0 0 0
+	BaseType "Binding Shard" "Alchemy Shard" "Alteration Shard" "Transmutation Shard"
+Show
+	PlayEffect Yellow Temp
+	BaseType "Orb of Transmutation"
+Show
+	PlayEffect Yellow
+	MinimapIcon 2 Yellow Circle
+	Class Currency
+Show
+	PlayEffect Blue Temp
+	MinimapIcon 2 Blue Raindrop
+	Class "Utility Flask"
+Show
+	Class Contract Blueprint
+
+# --- HIDE ALL UNMATCHED ITEMS --- #
+Hide
+	DisableDropSound
+	SetFontSize 18
+	SetBackgroundColor 0 0 0 0
+	SetBorderColor 0 0 0 0
+	Continue
+Hide
+	Rarity Rare
+	Identified False
+	Class Shields
+
+# --- BUT SHOW RECIPE: REGAL ORB --- #
+Show
+	SetBackgroundColor 255 255 119 80
+	Rarity Rare
+	Identified False
+	ItemLevel >= 75
+	Width 1
+	Height <= 3
+Show
+	SetBackgroundColor 255 255 119 80
+	Rarity Rare
+	Identified False
+	ItemLevel >= 75
+	Width <= 2
+	Height <= 2
+Show
+	SetBackgroundColor 255 255 119 80
+	Rarity Rare
+	Identified False
+	ItemLevel >= 75
+	Class Armour
+
+# --- BUT SHOW RECIPE: CHAOS ORB --- #
+Show
+    SetBackgroundColor 255 255 119 40
+    Rarity Rare
+    Identified False
+    ItemLevel >= 60
+    ItemLevel <= 74
+    Width 1
+    Height <= 3
+Show
+	SetBackgroundColor 255 255 119 40
+	Rarity Rare
+	Identified False
+	ItemLevel >= 60
+	ItemLevel <= 74
+	Width <= 2
+	Height <= 2
+Show
+	SetBackgroundColor 255 255 119 40
+	Rarity Rare
+	Identified False
+	ItemLevel >= 60
+	ItemLevel <= 74
+	Class Armour
